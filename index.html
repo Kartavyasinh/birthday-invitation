@@ -1,58 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>BaNna's Birthday Party</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Invitation</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-    <div class="invitation-container">
-        <div class="invitation-content">
-            <h1>You're Invited!</h1>
-            <h2>Join me in celebrating my birthday!</h2>
-            
-            <div class="details">
-                <div class="detail-item">
-                    <span class="icon">📅</span>
-                    <span>Saturday, June 15th, 2024</span>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt mb-5" data-tilt>
+                    <img src="images/img-03.avif" alt="IMG">
                 </div>
-                <div class="detail-item">
-                    <span class="icon">⏰</span>
-                    <span>7:00 PM onwards</span>
-                </div>
-                <div class="detail-item">
-                    <span class="icon">📍</span>
-                    <span>123 Party Street, Celebration City</span>
-                </div>
-                <div class="detail-item">
-                    <span class="icon">🎉</span>
-                    <span>Dress Code: Casual & Colorful</span>
-                </div>
+
+                <form class="login100-form validate-form" id="loginForm">
+                    <span class="login100-form-title">
+                        Invited Person Login
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Guest Name is required">
+                        <input class="input100" type="text" id="name" name="name" placeholder="Guest Name">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="text" id="password" name="password" placeholder="Password">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    
+                    <div id="errorMsg" class="error" style="display: none;"></div>
+                    
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+                </form>
             </div>
-            
-            <p class="message">
-                Let's make some wonderful memories together! There will be food, music, and lots of fun. 
-                Can't wait to celebrate with you!
-            </p>
-            
-            <div class="rsvp">
-                <p>Please RSVP by June 10th</p>
-                <a href="tel:+1234567890" class="button">Call to Confirm</a>
-                <a href="sms:+1234567890" class="button">Text to Confirm</a>
-            </div>
-        </div>
-        
-        <div class="invitation-image">
-            <img src="images/birthday-photo.jpg" alt="Birthday Celebration">
         </div>
     </div>
-    
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
+
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+        const guests = {
+            'aditya bhai😎' : 'Aditya@2004',
+            'chudel 👻'      : 'Chitra@2003',
+            'kashish boii'  : 'Kashish@2001',
+            'ishita'        : 'Ishita@2004',
+            'mayurika 🤓'      : 'Mayurika@2003',
+            'jiten party'   : 'Jiten@2003',
+            'shastri veera' : 'Shastri@2004',
+            'paji'          : 'Parvindar@2003',
+            'zaigam bro'    : 'Zaigam@2003',
+            'shubham bhai'  : 'Shubham@2000',
+            'vaghela'       : 'Sahil@2005',
+            'harshesh boii' : 'Harshesh@2001',
+            'viraj'         : 'Viraj@2005',
+            'sistu🥰'       : 'Jhanviba@2000',
+        };
+
+        // Handle form submission
+        $('#loginForm').on('submit', function(e) {
+            e.preventDefault();
+            
+            const name = $('#name').val().toLowerCase().trim();
+            const password = $('#password').val().trim();
+            const errorMsg = $('#errorMsg');
+            
+            if (guests[name] && password === guests[name]) {
+                // Store guest name in localStorage
+                localStorage.setItem('guestName', name);
+                // Redirect to invitation page
+                window.location.href = 'invitation.html';
+            } else {
+                errorMsg.text("Invalid Guest Name or Password").show();
+            }
+        });
+
+        // Tilt effect
+        $('.js-tilt').tilt({
+            scale: 1.1
+        });
+    </script>
 </body>
 </html>
