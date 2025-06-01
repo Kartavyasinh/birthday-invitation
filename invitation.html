@@ -50,23 +50,16 @@
     <div class="confetti"></div>
 
     <script>
-        // Check if user is logged in
-        const guestName = localStorage.getItem('guestName');
-        
-        if (!guestName) {
-            // Redirect to login if not authenticated
+        const guestLoginName    = localStorage.getItem('guestLoginName');
+        const guestDisplayName  = localStorage.getItem('guestDisplayName');
+
+        if (!guestLoginName || !guestDisplayName) {
             window.location.href = 'index.html';
         } else {
-            // Personalize the welcome message
-            const formattedName = guestName.split(' ')
-                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(' ');
-                
-            document.getElementById('welcomeMessage').textContent = `You're Invited, ${formattedName}!`;
+            document.getElementById('welcomeMessage').textContent = `You're Invited, ${guestDisplayName}!`;
             
-            // Add personal touch to message
             const message = document.querySelector('.message');
-            message.innerHTML = `Dear ${formattedName}, let's make some wonderful memories together! 
+            message.innerHTML = `Dear ${guestDisplayName}, let's make some wonderful memories together! 
                 There will be food, music, and lots of fun. Can't wait to celebrate with you!`;
         }
     </script>

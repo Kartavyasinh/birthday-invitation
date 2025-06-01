@@ -74,21 +74,21 @@
             'vaghela'       : 'Sahil@2005',
             'harshesh boii' : 'Harshesh@2001',
             'viraj'         : 'Viraj@2005',
-            'sistu🥰'       : 'Jhanviba@2000',
+            'sistu 🥰'       : 'Jhanviba@2000',
         };
 
         // Handle form submission
-        $('#loginForm').on('submit', function(e) {
+       $('#loginForm').on('submit', function(e) {
             e.preventDefault();
             
-            const name = $('#name').val().toLowerCase().trim();
-            const password = $('#password').val().trim();
-            const errorMsg = $('#errorMsg');
+            const name      = $('#name').val().toLowerCase().trim();
+            const password  = $('#password').val().trim();
+            const errorMsg  = $('#errorMsg');
             
             if (guests[name] && password === guests[name]) {
-                // Store guest name in localStorage
-                localStorage.setItem('guestName', name);
-                // Redirect to invitation page
+                const invitedName = guests[name].split('@')[0];
+                localStorage.setItem('guestLoginName', name);
+                localStorage.setItem('guestDisplayName', invitedName);
                 window.location.href = 'invitation.html';
             } else {
                 errorMsg.text("Invalid Guest Name or Password").show();
