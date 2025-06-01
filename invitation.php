@@ -1,0 +1,55 @@
+<?php
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Invitation</title>
+    <link rel="stylesheet" href="css\invitation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="invitation-container">
+        <div class="invitation-content">
+            <h1>You're Invited!</h1>
+            <h2>Join me in celebrating my birthday!</h2>
+            
+            <div class="details">
+                <div class="detail-item">
+                    <span class="icon">📅</span>
+                    <span>Tuesday, June 3rd, 2025</span>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">⏰</span>
+                    <span>10:30 AM onwards</span>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">📍</span>
+                    <span>Creamy Spoon Garden Restaurant,Near Godrej Garden City Road, Chenpur Rd, Ahmedabad</span>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">🎉</span>
+                    <span>Dress Code: Blue</span>
+                </div>
+            </div>
+            
+            <p class="message">
+                Let's make some wonderful memories together! There will be food, music, and lots of fun. 
+                Can't wait to celebrate with you!
+            </p>
+
+        </div>
+        
+        <div class="invitation-image">
+            <img src="images\img-06.jpg" alt="Birthday Celebration">
+        </div>
+    </div>
+    
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+</body>
+</html>
